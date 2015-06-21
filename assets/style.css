@@ -48,12 +48,6 @@ a:active {
 /* Typography
    ========================================================================== */
 
-h1,
-h2,
-h3 {
-    margin: 0 0 1em;
-}
-
 h1 {
     margin: 0 0 0.25em;
     font-size: 3em;
@@ -64,6 +58,7 @@ h2 {
 }
 
 h3 {
+    margin: 0 0 1em;
     font-size: 1.125em;
     color: #777;
 }
@@ -223,4 +218,23 @@ a.box:active {
         width: 100%;
     }
 
+}
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+/* ================================================================================
+Example showing how to change the color/size of the icons:
+.icon-name {
+	font-size: 32px; // works because "width" & "height" were set using em units
+	color: red; // works because "fill" was set to "currentColor"
+}
+================================================================================ */
+
+.icon-ilsllc {
+	width: 2.423828125em;
 }
