@@ -29,7 +29,6 @@
         var $link = $('<a class="box" href="' + getRepoUrl(repo) + '" />');
 
         $link.append('<h2 class="repo__name">' + repo.name + '</h2>');
-        $link.append('<p class="repo__info">' + repo.watchers + ' stargazers ' + (repo.language !== null ? '&middot; ' + repo.language : '') + '</p>');
         $link.append('<p class="repo__desc">' + getRepoDesc(repo) + '</p>');
 
         $link.appendTo($item);
