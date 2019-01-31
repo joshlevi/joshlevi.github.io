@@ -1,0 +1,40 @@
+// ==========================================================================
+// Desktop Custom Styles
+// ==========================================================================
+
+
+// Header
+.header-inner {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+// Banner Heading
+.banner-lead {
+  .font-size(70);
+  .line-height(90);
+}
+
+// Navigation Menu
+.navigation-menu {
+  .list-inline;
+  .inline-block;
+  .navigation-item {
+    .inline-block;
+    & > a {
+      .no-margin;
+      color: @white;
+      padding: 50px 15px 0 15px;
+    }
+  }
+}
+
+// Footer
+.footer {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+.footer-column {
+  padding-top: 0;
+  &:after { content: none; }
+}

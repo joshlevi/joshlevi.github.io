@@ -1,0 +1,102 @@
+// ==========================================================================
+// Tablet Custom Styles
+// ==========================================================================
+
+// Shared Assets
+.feature-box { padding: 50px 60px; }
+
+// Header
+.header {
+  background: transparent;
+  opacity: .9;
+  padding-bottom: 20px;
+}
+.header-inner {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+// Hamburger Button (hide for tablet and above)
+.navigation-toggle-label { .none; }
+.navigation {
+  max-height: none;
+  opacity: 1;
+}
+
+// Banner
+.banner { min-height: 550px; }
+.banner-inner {
+  .col-10;
+  .no-float;
+  .center-element;
+  .no-padding;
+  padding-top: 45px;
+}
+
+// Banner Headings
+.banner-lead-1, .banner-lead-2 { .block; }
+
+// Banner Buttons
+.banner-buttons {
+  padding-bottom: 120px;
+  .button { margin: 0 4px; }
+}
+
+// Navigation
+.navigation {
+  .right;
+  margin-top: 0;
+  clear: none;
+}
+
+// Navigation Menu
+.navigation-menu {
+  .list-inline;
+  .inline-block;
+  .navigation-item {
+    .inline-block;
+    margin: 0 5px;
+    & > a {
+      .h5;
+      .no-margin;
+      color: @white;
+      padding: 50px 2px 0 2px;
+      .relative;
+      &:before {
+        .transition(0.1s);
+        width: 0px;
+        height: 4px;
+        background: @white;
+        content: "";
+        .block;
+        top: 0;
+        left: 50%;
+        .absolute;
+      }
+      &:hover, &.active {
+        color: @white;
+        &:before {
+          left: 0;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+// Social Navigation Menu
+.navigation-social {
+  .list-inline;
+  margin-top: 0;
+  .inline-block;
+  &:before { content: none; }
+  .navigation-item-social {
+    margin: 0 5px;
+  }
+}
+
+// Food Menu Block
+.food-menu-content {
+  .col-6;
+  padding-left: 30px;
+  padding-right: 30px;
+}
