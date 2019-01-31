@@ -1,0 +1,180 @@
+.main-menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 3;
+  font-family: sans-serif;
+
+  &.hide-font {
+    color: transparent;
+    & .menu-footer-notes {
+      color: transparent;
+    }
+  }
+
+  &.use-font {
+    font-family: inherit;
+  }
+
+  &.hidden {
+    pointer-events: none;
+  }
+
+  & .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    min-width: 264px;
+    width: 40%;
+    max-width: 340px;
+    background: #fff;
+    box-shadow: 3px 0 16px rgba(0, 0, 0, 0.4);
+    will-change: transform;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+    @include display-flex;
+    @include flex-flow(column);
+  
+    &.transition {
+      @include transition-transform(0.2s ease-out);
+    }
+    &.hidden {
+      @include transform(translateX(-110%));
+    }
+
+    & > * {
+      @include min-height-min-content;
+    }
+  }
+
+  & .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(#000, 0.4);
+    will-change: opacity;
+
+    &.transition {
+      @include transition(opacity 0.2s ease-in-out);
+    }
+    &.hidden {
+      opacity: 0;
+    }
+  }
+
+  & ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  & li {
+    display: block;
+    margin: 0;
+    padding: 0;
+  }
+
+  & .menu-item {
+    padding: 0 16px;
+    width: 100%;
+    // I want this to be min-height, but IE breaks layout if I do
+    height: 48px;
+    box-sizing: border-box;
+    @include display-flex;
+    @include align-items(center);
+
+    &:link,
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    &:focus,
+    &:hover {
+      outline: none;
+      background: rgba(#000, 0.1);
+    }
+
+    & .icon {
+      width: 24px;
+      height: 24px;
+      opacity: 0.54;
+      margin-right: 32px;
+      @include flex(none);
+    }
+
+    & .spinner {
+      @include flex(none);
+      margin: 0 0 0 auto;
+    }
+  }
+
+  & .menu-input {
+    cursor: pointer;
+
+    & .input-area {
+      position: relative;
+      white-space: nowrap;
+    }
+
+    & .label-txt {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    & textarea,
+    & input {
+      display: block;
+      font: inherit;
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+      opacity: 0;
+      cursor: inherit;
+      resize: none;
+      width: 100%;
+      height: 1.3em;
+      overflow: hidden;
+
+      &:focus {
+        outline: none;
+        opacity: 1;
+
+        & + .label-txt {
+          opacity: 0;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+
+  & .select-file-input {
+    display: none;
+  }
+}
+
+.menu-footer-notes {
+  padding: 0 16px;
+  margin-top: auto;
+  text-align: center;
+  font-size: 0.9rem;
+  color: #8E8E8E;
+
+  & a:link,
+  & a:visited {
+    color: inherit;
+    text-decoration: underline;
+  }
+
+  & a:hover,
+  & a:active {
+    color: #000;
+  }
+}

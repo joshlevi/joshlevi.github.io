@@ -1,0 +1,22 @@
+.toolbar {
+  background: #3F51B5;
+  color: #fff;
+  @include display-flex;
+  @include align-items(center);
+}
+
+.menu-toolbar-item {
+  & button {
+    padding: 10px 12px;
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  & svg {
+    width: 24px;
+    height: 24px;
+    fill: #fff;
+  }
+}

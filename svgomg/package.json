@@ -1,0 +1,38 @@
+{
+  "devDependencies": {
+    "@alrra/travis-scripts": "^1.1.0",
+    "babelify": "^6.3.0",
+    "browser-sync": "^2.9.1",
+    "browserify": "^8.0.0",
+    "del": "^1.1.0",
+    "es6-promise": "^2.0.1",
+    "fastclick": "^1.0.3",
+    "gulp": "^3.9.00",
+    "gulp-filter": "^2.0.0",
+    "gulp-htmlmin": "1.1.4",
+    "gulp-load-plugins": "^0.8.0",
+    "gulp-sass": "^2.0.4",
+    "gulp-size": "^1.1.0",
+    "gulp-sourcemaps": "^1.2.8",
+    "gulp-swig": "^0.7.4",
+    "gulp-util": "^3.0.1",
+    "lodash": "^3.10.1",
+    "merge-stream": "^0.1.6",
+    "pako": "^0.2.7",
+    "prismjs": "git+https://github.com/LeaVerou/prism.git#gh-pages",
+    "regenerator": "^0.8.41",
+    "run-sequence": "^1.0.1",
+    "svgo": "0.5.6",
+    "uglifyify": "^2.6.0",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.2.1"
+  },
+  "private": true,
+  "scripts": {
+    "build": "gulp build --production",
+    "serve": "gulp serve",
+    "serve-no-sw": "gulp serve --disable-sw",
+    "test": "gulp build --production"
+  }
+}
