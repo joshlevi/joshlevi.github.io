@@ -1,7 +1,7 @@
 joshlevi.github.com
 ======
 
-The source code of http://joshlevi.github.com/
+The source code of https://joshlevi.github.com/
 
 LICENSE
 ------------
