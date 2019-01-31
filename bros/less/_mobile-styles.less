@@ -1,0 +1,597 @@
+// ==========================================================================
+// Mobile Custom Styles
+// ==========================================================================
+
+// Shared Assets
+.select { background: @white; }
+
+// Headings
+h2, .h2 {
+  margin: 0;
+  .text-center;
+  &:after {
+    content: "";
+    .divider;
+    .divider-secondary;
+    margin-bottom: 20px;
+  }
+}
+.h2-secondary {
+  color: @white;
+  &:after {
+    content: "";
+    .divider-third;
+  }
+}
+
+// Dividers
+.divider {
+  width: 270px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  .block;
+  .center-element;
+}
+.divider-primary {
+  background-image: url(img/divider-xl-white.svg);
+  height: 55px;
+}
+.divider-secondary {
+  background-image: url(img/divider-gold.svg);
+  height: 40px;
+}
+.divider-third {
+  background-image: url(img/divider-white.svg);
+  height: 35px;
+}
+.divider-fourth {
+  background-image: url(img/divider-sm-white.svg);
+  height: 30px;
+}
+
+// Buttons
+.button {
+  color: @white;
+  padding: 1em 3em;
+  text-decoration: none;
+  border: 1px solid transparent;
+  background: @gold;
+  .transition(0.3s);
+  .font-bold;
+  .inline-block;
+  .uppercase;
+  .relative;
+  &:hover { background: @softGold; }
+  &:active { top: 1px; }
+}
+.button-primary {
+  border: 1px solid @black;
+  .bg-rgba(@black, 50%);
+  &:hover { .bg-rgba(@black, 100%); }
+}
+.button-secondary {
+  border: 1px solid @white;
+  .bg-rgba(@white, 15%);
+  &:hover { .bg-rgba(@white, 0%); }
+}
+
+// Feature Box
+.feature-box {
+  padding: 20px 10px;
+  color: @white;
+  .bg-rgba(@black, 80%);
+}
+
+// Social Icons
+.social {
+  width: 16px;
+  height: 25px;
+  top: 7px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  .block;
+  .relative;
+  .transition;
+}
+.social-facebook {
+  .svg-fill("img/facebook.svg", ~"@{white}");
+  &:hover {
+    .svg-fill("img/facebook.svg", ~"@{gold}");
+  }
+}
+.social-twitter {
+  .svg-fill("img/twitter.svg", ~"@{white}");
+  &:hover {
+    .svg-fill("img/twitter.svg", ~"@{gold}");
+  }
+}
+.social-youtube {
+  .svg-fill("img/youtube.svg", ~"@{white}");
+  &:hover {
+    .svg-fill("img/youtube.svg", ~"@{gold}");
+  }
+}
+.social-google-plus {
+  .svg-fill("img/google-plus.svg", ~"@{white}");
+  &:hover {
+    .svg-fill("img/google-plus.svg", ~"@{gold}");
+  }
+}
+
+// Payment Icons
+.payment {
+  width: 40px;
+  height: 25px;
+  top: 7px;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  .block;
+  .relative;
+}
+.payment-mastercard { .svg-fill("img/mastercard.svg", ~"@{white}"); }
+.payment-visa { .svg-fill("img/visa.svg", ~"@{white}"); }
+.payment-american-express { .svg-fill("img/american-express.svg", ~"@{white}"); }
+.payment-paypal { .svg-fill("img/paypal.svg", ~"@{white}"); }
+
+// Img
+img { max-width: 100%; }
+
+
+// Banner
+.banner {
+  background: url(img/hero-bg.jpg) 0 0 no-repeat;
+  background-size: cover;
+  .text-center;
+}
+
+// Banner Heading
+.banner-lead {
+  &:after {
+    .divider;
+    .divider-primary;
+    .center-element;
+    margin-top: 20px;
+    content: "";
+    .animate;
+    .animate-delay(1s);
+    .fade-in;
+  }
+}
+.banner-lead-1, .banner-lead-2 {
+  .animate;
+  .fade-in;
+}
+.banner-lead-1 { .animate-delay(.4s); }
+.banner-lead-2 { .animate-delay(.8s); }
+
+// Banner Buttons
+.banner-buttons {
+  padding-bottom: 20px;
+  .animate;
+  .animate-delay(1.4s);
+  .fade-in;
+  .button {
+    margin: 10px 0;
+  }
+}
+
+// Header
+.header {
+  background: @darkestGrey;
+  padding-bottom: 15px;
+  .relative;
+  &:after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    .bg-rgba(@white, 20%);
+    .absolute;
+    bottom: 0;
+    left: 0;
+  }
+}
+
+// Logo
+.logo {
+  width: 160px;
+  height: 95px;
+  background: url(img/logo.svg) 50% 50% no-repeat;
+  .inline-block;
+  .left;
+  .transition;
+  opacity: 1;
+  margin-top: 10px;
+  &:hover { opacity: .8; }
+}
+
+// Hamburger Button for Mobile
+.navigation-toggle-label {
+  .font-size(16);
+  line-height: normal;
+  .no-border;
+  .font-bold;
+  .uppercase;
+  .block;
+  .right;
+  .relative;
+  height: 20px;
+  width: 25px;
+  background: transparent;
+  margin-top: 50px;
+  margin-right: 10px;
+  color: @white;
+  cursor: pointer;
+  &:before, &:after, .navigation-toggle-label-inner:before {
+    content: "";
+    width: 25px;
+    height: 1px;
+    background: @white;
+    .inline-block;
+    .absolute;
+    .transition;
+  }
+  &:before {
+    top: 0;
+    left: 0;
+  }
+  &:after {
+    top: 7px;
+    left: 0;
+  }
+  .navigation-toggle-label-inner:before {
+    top: 14px;
+    left: 0;
+  }
+}
+// Hamburger Button - Active
+.navigation-toggle-checkbox[type=checkbox]:checked ~ .navigation-toggle-label {
+  &:before, &:active, .navigation-toggle-label-inner:before {
+    .transition(.5s);
+  }
+  &:before {
+    top: 7px;
+    .rotate(45);
+  }
+  &:after {
+    opacity: 0;
+  }
+  .navigation-toggle-label-inner:before {
+    top: 7px;
+    .rotate(-45);
+  }
+}
+
+// Navigation
+.navigation { clear: both; }
+
+
+.navigation {
+  .transition;
+  opacity: 0;
+  max-height: 1px;
+  overflow: hidden;  
+}
+.navigation-toggle-checkbox[type=checkbox]:checked ~ .navigation {
+  opacity: 1;
+  max-height: 400px;
+}
+
+
+// Navigation Menu
+.navigation-menu {
+  .list-unstyled;
+  .navigation-item {
+    .block;
+    .text-left;
+    margin-top: 10px;
+    & > a {
+      .h4;
+      .no-margin;
+      .block;
+      color: @white;
+      text-decoration: none;
+      .relative;
+      &:hover, &.active { color: @gold; }
+    }
+  }
+}
+
+// Social Navigation Menu
+.navigation-social {
+  .list-inline;
+  .block;
+  .relative;
+  margin-top: 15px;
+  &:before {
+    content: "";
+    width: 100%;
+    height: 1px;
+    .bg-rgba(@white, 20%);
+    .absolute;
+    top: 0;
+    left: 0;
+  }
+  .navigation-item-social {
+    margin: 0 4px;
+  }
+}
+
+// General Content
+.content-block {
+  background: @softGrey;
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+
+// About Block
+.about-block {
+  background: url(img/contemporary-china.png) 0 0 repeat;
+  .about-block-content {
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  .about-chef {
+    margin-top: 20px;
+  }
+}
+
+// About Block Animations
+.about-block.active {
+  .about-block-content {
+    h2 {
+      .animate;
+      .animate-delay(0.2s);
+      .fade-in-down;
+    }
+    p {
+      .animate;
+      .animate-delay(0.4s);
+      .fade-in-down;
+    }
+    img {
+      .animate;
+      .animate-delay(0.6s);
+      .fade-in;
+    }
+  }
+  .about-block-img {
+    .animate;
+    .animate-delay(0.8s);
+    .fade-in-right;
+  }
+}
+
+
+// Ingredients Block
+.ingredients-block {
+  background: url(img/ingredients-bg.jpg) 0 0 no-repeat;
+  background-size: cover;
+}
+.feature-image-group {
+  padding-top: 20px;
+  .text-center;
+}
+.feature-image {
+  .inline-block;
+  margin: 0 5px;
+  border: 5px solid @copyGrey;
+  border-radius: 100%;
+  width: 100px;
+  height: 100px;
+}
+
+
+// Ingredients Block Animations
+.ingredients-block.active {
+  .animate;
+  .animate-delay(0.2s);
+  .fade-in;
+  .feature-box {
+    .animate;
+    .animate-delay(0.4s);
+    .fade-in;
+    h2 {
+      .animate;
+      .animate-delay(0.6s);
+      .fade-in-down;
+    }
+    p {
+      .animate;
+      .animate-delay(0.6s);
+      .fade-in-up;
+    }
+    .feature-image {
+      .animate;
+      .fade-in;
+    }
+    .feature-image-1 { .animate-delay(0.2s); }
+    .feature-image-2 { .animate-delay(0.4s); }
+    .feature-image-3 { .animate-delay(0.6s); }
+  }
+}
+
+// Food Menu Block
+.food-menu-block { background: url(img/cream-pixels.png) 0 0 repeat; }
+.food-menu-list {
+  .list-unstyled;
+  margin-bottom: 60px;
+  .food-menu-item {
+    .relative;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  .food-menu-item-special {
+    border: 1px solid @specialGold;
+    margin-top: 20px;
+    &:after {
+      .font-size(13);
+      line-height: 30px;
+      content: "Special";
+      .block;
+      .absolute;
+      height: 30px;
+      top: -30px;
+      right: -1px;
+      .font-bold;
+      padding: 0 5px;
+      .bg-rgba(@softGold, 80%);
+      color: @white;
+    }
+  }
+}
+.food-menu-heading {
+  .h3;
+  color: @softGold;
+  .col-6;
+  .no-padding;
+  .text-left
+}
+.food-menu-item-header {
+  border-bottom: 1px solid @specialGold;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.food-menu-price {
+  .h3;
+  color: @softGold;
+  .col-6;
+  .no-padding;
+  .text-right;
+}
+
+// Food Menu Block Animations
+.food-menu-block.active {
+  .food-menu-content {
+    &:first-child {
+      .animate;
+      .fade-in-left;
+    }
+    .animate;
+    .fade-in-right;
+  }
+}
+
+
+// Reviews Block
+.reviews-block {
+  background: url(img/reviews-bg.jpg) 0 50% no-repeat;
+  background-size: cover;
+}
+
+// Reviews Block Animations
+.reviews-block.active {
+  .animate;
+  .animate-delay(0.2s);
+  .fade-in;
+  .feature-box {
+    .animate;
+    .animate-delay(0.4s);
+    .fade-in;
+    h2 {
+      .animate;
+      .animate-delay(0.6s);
+      .fade-in-down;
+    }
+    blockquote {
+      .animate;
+      .animate-delay(0.6s);
+      .fade-in-up;
+    }
+  }
+}
+
+
+// Reservations Block with Booking Form
+.reservations-block {
+  background: url(img/pw-maze-white.png) 0 0 repeat;
+  .field {
+    border: 1px solid @grey;
+    .bg-rgba(@white, 80%);
+    .transition;
+    &:focus {
+      outline: 0;
+      border-color: @gold;
+    }
+  }
+}
+.reservations-submit {
+  margin-top: 20px;
+  padding: .5em 2.5em;
+  .font-regular;
+}
+
+// Reservations Block Animations
+.reservations-block.active {
+  .reservation-block-img {
+    &:first-child {
+      .animate;
+      .animate-delay(0.2s);
+      .fade-in-left;      
+    }
+    .animate;
+    .animate-delay(0.3s);
+    .fade-in-left;
+  }
+  .reservation-block-form {
+    .animate;
+    .animate-delay(0.4s);
+    .fade-in-left; 
+  }
+}
+
+
+// Footer
+.footer {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  .text-center;
+  color: @midGrey;
+  background: @darkestGrey;
+  strong {
+    color: @white;
+  }
+}
+.footer-heading {
+  .h4;
+  margin-bottom: 20px;
+  color: @white;
+  &:after {
+    .divider;
+    .divider-fourth;
+    margin-top: 20px;
+    content: "";
+  }
+}
+.footer-column {
+  .relative;
+  p { .no-margin; }
+  padding-top: 20px;
+  &:after {
+    content: "";
+    width: 100%;
+    height: 1px;
+    .bg-rgba(@white, 20%);
+    .absolute;
+    top: 20px;
+    left: 0;
+  }
+  &:first-child {
+    padding-top: 0;
+    &:after { content: none; }
+  }
+}
+.icon-list-inline {
+  .list-inline;
+  margin-top: 10px;
+  li {
+    margin-left: 10px;
+    &:first-child { margin-left: 0; }
+  }
+}
+.footer-social-list {
+  .social-twitter:hover { .svg-fill("img/twitter.svg", "#00acee"); }
+  .social-facebook:hover { .svg-fill("img/facebook.svg", "#3b5998"); }
+  .social-google-plus:hover { .svg-fill("img/google-plus.svg", "#e45135"); }
+  .social-youtube:hover { .svg-fill("img/youtube.svg", "#c4302b"); }
+}
