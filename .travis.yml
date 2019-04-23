@@ -1,0 +1,14 @@
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  on:
+    branch: master
+env:
+  global:
+    - secure: f6dd164b376674675530ca07a724c678a53056c5
+  matrix:
+    - USE_NETWORK=true
+    - USE_NETWORK=false
+    - secure: <you can also put encrypted vars inside matrix>
