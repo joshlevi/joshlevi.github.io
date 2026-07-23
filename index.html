@@ -59,6 +59,7 @@
             <div class="brand">JOSHUA<span class="dot">·</span>SIZEMORE</div>
             <nav>
                 <a href="#work">Work</a>
+                <a href="#demo">Demo</a>
                 <a href="#projects">Projects</a>
                 <a href="#book">Book</a>
                 <a href="#about">About</a>
@@ -74,7 +75,7 @@
             <p class="lede">I'm Joshua — a web developer, AI consultant, and longtime working musician. I build sites and simple automation for local businesses. Start with a free 15-minute call; if it's a fit, I come to your shop with a working demo, before you spend a dollar.</p>
             <div class="cta-row">
                 <a class="btn btn-primary" href="#book">Book a free 15-minute call</a>
-                <a class="btn btn-ghost" href="#projects">See the code</a>
+                <a class="btn btn-ghost" href="#demo">See it work</a>
             </div>
         </section>
 
@@ -129,7 +130,52 @@
         </section>
 
         <div class="meter">
-            <span class="meter-label mono">02 — proof</span>
+            <span class="meter-label mono">02 — see it work</span>
+            <div class="bars">
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+
+        <section id="demo">
+            <div class="section-head">
+                <h2>The missed call, recovered</h2>
+                <p class="aside">A simulation — nothing is actually sent</p>
+            </div>
+
+            <div class="demo-grid">
+                <div class="demo-copy">
+                    <p>Someone calls your shop while you're with a customer. Nothing happens, and they call the next place on the list. That's the whole problem, and it costs more than any website ever will.</p>
+                    <p class="muted-line">Here's what I install instead. Press the button and watch it from your customer's side.</p>
+                    <div class="demo-actions">
+                        <button class="btn btn-primary" id="demo-play" type="button">Call the shop</button>
+                        <button class="btn btn-ghost" id="demo-reset" type="button" hidden>Run it again</button>
+                    </div>
+                    <p class="demo-stat mono" id="demo-stat" role="status" aria-live="polite"></p>
+                </div>
+
+                <div class="phone">
+                    <div class="phone__notch"></div>
+                    <div class="phone__screen">
+                        <div class="phone__status mono"><span>9:41</span><span>Calderon Barbershop</span></div>
+
+                        <div class="phone__call" id="demo-call">
+                            <div class="call__label mono">Calling…</div>
+                            <div class="call__name">Calderon Barbershop</div>
+                            <div class="call__num mono">(336) 555-0142</div>
+                            <div class="call__dots"><span></span><span></span><span></span></div>
+                        </div>
+
+                        <div class="phone__thread" id="demo-thread"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="meter">
+            <span class="meter-label mono">03 — proof</span>
             <div class="bars">
                 <span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span><span></span>
@@ -145,7 +191,7 @@
         </section>
 
         <div class="meter">
-            <span class="meter-label mono">03 — open source</span>
+            <span class="meter-label mono">04 — open source</span>
             <div class="bars">
                 <span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span><span></span>
@@ -165,7 +211,7 @@
         </section>
 
         <div class="meter">
-            <span class="meter-label mono">04 — booking</span>
+            <span class="meter-label mono">05 — booking</span>
             <div class="bars">
                 <span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span><span></span>
@@ -229,7 +275,7 @@
         </section>
 
         <div class="meter">
-            <span class="meter-label mono">05 — about</span>
+            <span class="meter-label mono">06 — about</span>
             <div class="bars">
                 <span></span><span></span><span></span><span></span><span></span>
                 <span></span><span></span><span></span><span></span><span></span>
@@ -269,6 +315,7 @@
     </footer>
 
     <script src="assets/app.js"></script>
+    <script src="assets/demo.js"></script>
 </body>
 
 </html>
