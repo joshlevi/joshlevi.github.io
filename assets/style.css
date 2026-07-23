@@ -434,6 +434,15 @@ a.repo:focus .repo__name {
 /* Booking / Google Calendar embed
    ========================================================================== */
 
+/* Two-step sequence, reusing the channel rows. */
+.steps {
+    margin-bottom: 28px;
+}
+
+.steps .idx {
+    color: var(--amber);
+}
+
 .calendar-embed {
     border: 1px solid var(--line);
     border-radius: 4px;
