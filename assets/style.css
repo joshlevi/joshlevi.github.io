@@ -1,240 +1,608 @@
 /*
- * Josh Levi project listing repo
+ * joshlevi.github.io
+ * Portfolio + live GitHub project listing.
+ * Design language shared with The ILS Network.
  */
 
+:root {
+    --bg: #14171C;
+    --surface: #1B1F26;
+    --surface-2: #20242C;
+    --line: rgba(237, 235, 227, 0.10);
+    --amber: #D9A441;
+    --teal: #4FB8A8;
+    --text: #EDEBE3;
+    --muted: #8B90A0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 html {
-    font: 14px/1.4 "Helvetica Neue", Helvetica, Arial, sans-serif;
-    color: #333;
-    -webkit-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
+    scroll-behavior: smooth;
 }
 
 body {
-    max-width: 940px;
-    padding: 20px 10px;
-    margin: 0 auto;
-    background: #f5f5f5;
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1,
+h2,
+h3,
+.display,
+nav,
+.tag,
+.meter-label,
+button,
+.btn {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+a {
+    color: inherit;
 }
 
 img {
     border: 0;
-    -ms-interpolation-mode: bicubic;
+    max-width: 100%;
 }
 
-/* Links
+.wrap {
+    max-width: 840px;
+    margin: 0 auto;
+    padding: 0 28px;
+}
+
+section {
+    padding-top: 8px;
+}
+
+/* Meter divider: the signature element
    ========================================================================== */
 
-a {
-    color: #0084b4;
+.meter {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin: 64px 0;
+}
+
+.meter .bars {
+    display: flex;
+    gap: 3px;
+    flex: 1;
+}
+
+.meter .bars span {
+    height: 14px;
+    width: 6px;
+    background: var(--line);
+    border-radius: 1px;
+}
+
+.meter.active .bars span:nth-child(-n+9) {
+    background: var(--teal);
+}
+
+.meter.active .bars span:nth-child(9) {
+    background: var(--amber);
+}
+
+.meter-label {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+}
+
+/* Nav
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: rgba(20, 23, 28, 0.85);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+header .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 18px;
+    padding-bottom: 18px;
+}
+
+.brand {
+    font-weight: 600;
+    font-size: 15px;
+    letter-spacing: 0.02em;
+}
+
+.brand .dot {
+    color: var(--amber);
+}
+
+nav a {
+    color: var(--muted);
     text-decoration: none;
+    font-size: 13px;
+    margin-left: 26px;
+    letter-spacing: 0.03em;
+    transition: color .15s;
 }
 
-a:hover,
-a:focus,
-a:active {
-    color: #005E80;
-    text-decoration: underline;
+nav a:hover,
+nav a:focus {
+    color: var(--text);
 }
 
-a:focus {
-    outline: thin dotted;
-}
-
-a:hover,
-a:active {
-    outline: 0;
-}
-
-/* Typography
+/* Hero
    ========================================================================== */
 
-h1 {
-    margin: 0 0 0.25em;
-    font-size: 3em;
+.hero {
+    padding: 88px 0 0;
 }
 
-h2 {
-    font-size: 1.25em;
+.eyebrow {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+    margin-bottom: 22px;
 }
 
-h3 {
-    margin: 0 0 1em;
-    font-size: 1.125em;
-    color: #777;
+.eyebrow::before {
+    content: '';
+    width: 22px;
+    height: 1px;
+    background: var(--teal);
 }
 
-p {
-    margin: 0 0 1em;
+h1.display {
+    font-size: clamp(38px, 6vw, 64px);
+    line-height: 1.05;
+    font-weight: 700;
+    margin: 0 0 22px;
+    letter-spacing: -0.01em;
 }
 
-/* Lists
+h1.display span {
+    color: var(--amber);
+}
+
+.lede {
+    font-size: 19px;
+    color: var(--muted);
+    max-width: 560px;
+    margin: 0 0 34px;
+}
+
+.cta-row {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 13px 22px;
+    border-radius: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform .15s, border-color .15s, background .15s;
+}
+
+.btn-primary {
+    background: var(--amber);
+    color: #181A1D;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+}
+
+.btn-ghost {
+    border-color: var(--line);
+    color: var(--text);
+}
+
+.btn-ghost:hover {
+    border-color: var(--muted);
+}
+
+/* Section heads
    ========================================================================== */
 
-ol {
-    list-style: none;
-    padding: 0;
+.section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+}
+
+.section-head h2 {
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 500;
     margin: 0;
 }
 
-
-/* =============================================================================
-   Structure
-   ========================================================================== */
-
-.grid {
-    display: block;
-    padding: 0;
-    margin: 0 -10px;
-    /* remove intra-unit whitespace for all font families */
-    letter-spacing: -0.31em;
-    *letter-spacing: normal;
-    word-spacing: -0.43em;
-    /* protect against WebKit bug with optimizelegibility */
-    text-rendering: optimizespeed;
+.section-head .aside {
+    font-size: 12px;
+    color: var(--muted);
 }
 
-.unit-1-3 {
-    width: 300px;
-    display: inline-block;
-    margin: 0 10px 20px;
-    /* controls vertical positioning of units */
-    vertical-align: top;
-    /* reset defaults */
-    letter-spacing: normal;
-    word-spacing: normal;
-    text-rendering: auto;
-    *display: inline;
-    *zoom: 1;
+.section-head .aside a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
 }
 
-/* Box
+.section-head .aside a:hover {
+    border-color: var(--teal);
+}
+
+/* Channels (what I do)
    ========================================================================== */
 
-.box {
-    display: block;
-    overflow: hidden;
-    min-height: 200px;
-    padding: 15px;
-    border: 1px solid #ddd;
+.channel-list {
+    display: grid;
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
     border-radius: 4px;
-    text-decoration: none;
-    background: #fff;
+    overflow: hidden;
 }
 
-a.box:hover,
-a.box:focus,
-a.box:active {
-    padding: 12px;
-    border-width: 4px;
-    border-color: #005E80;
-    text-decoration: none;
+.channel {
+    background: var(--surface);
+    padding: 28px 26px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 22px;
+    align-items: start;
 }
 
-/* Header
+.channel .idx {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--teal);
+    padding-top: 4px;
+}
+
+.channel h3 {
+    font-size: 20px;
+    margin: 0 0 8px;
+    font-weight: 600;
+}
+
+.channel p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15.5px;
+    max-width: 520px;
+}
+
+.channel .tag {
+    display: inline-block;
+    margin-top: 14px;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--amber);
+}
+
+/* Proof strip
    ========================================================================== */
 
-.site-header {
-    float:left;
-    text-align: center;
+.proof {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
 }
 
-.site-header .box {
-    min-height: 452px;
+.proof div {
+    background: var(--surface-2);
+    padding: 24px 20px;
 }
 
-.stats {
-    margin: 0 0 2em;
-    font-size: 1.125em;
+.proof .num {
+    font-family: 'JetBrains Mono', monospace;
+    color: var(--teal);
+    font-size: 26px;
+    display: block;
+    margin-bottom: 6px;
 }
 
-.twitter-share-button {
-    margin-top: 30px;
+.proof .lbl {
+    color: var(--muted);
+    font-size: 13px;
 }
 
-/* Content
+/* Repos: the live GitHub feed
    ========================================================================== */
+
+.repo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.repo {
+    background: var(--surface);
+    padding: 24px 24px 22px;
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    transition: background .15s;
+}
+
+a.repo:hover,
+a.repo:focus {
+    background: var(--surface-2);
+}
+
+a.repo:hover .repo__name,
+a.repo:focus .repo__name {
+    color: var(--amber);
+}
 
 .repo__name {
-    margin: 0 0 0.1em;
-    font-size: 1.5em;
-}
-
-.repo__info {
-    display: block;
-    margin: 0 0 1.25em;
-    font-size: 12px;
-    font-weight: bold;
-    color: #999;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 17px;
+    font-weight: 600;
+    margin: 0 0 8px;
+    word-break: break-word;
+    transition: color .15s;
 }
 
 .repo__desc {
-    color: #666;
+    margin: 0 0 18px;
+    color: var(--muted);
+    font-size: 15px;
+    flex: 1;
 }
 
-/* Footer
-   ========================================================================== */
-
-.site-footer {
-    padding: 15px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    background: #fff;
-    clear: both;
+.repo__meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--muted);
 }
 
-.site-footer p {
+.repo__lang {
+    color: var(--teal);
+}
+
+.repo__fork {
+    color: var(--amber);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Loading / error states for the feed */
+.repo-note {
+    background: var(--surface);
+    padding: 24px;
     margin: 0;
-    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    grid-column: 1 / -1;
 }
 
+.repo-note a {
+    color: var(--teal);
+}
 
-/* =============================================================================
-   Small screen adjustments
+/* Booking / Google Calendar embed
    ========================================================================== */
 
-@media (max-width:960px) {
-
-    body {
-        max-width: 620px;
-    }
-
+.calendar-embed {
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    background: var(--surface);
+    /* Google's embed only renders light; the frame keeps it seated in the page. */
+    padding: 1px;
 }
 
-@media (max-width:640px) {
-
-    body {
-        box-sizing: border-box;
-        max-width: 450px;
-        width: 100%;
-    }
-
-    .grid {
-        margin: auto;
-        padding: 0 5px;
-    }
-
-    .unit-1-3 {
-        margin: 5px auto;
-        width: 100%;
-    }
-
+.calendar-embed iframe {
+    display: block;
+    width: 100%;
+    height: 620px;
+    border: 0;
 }
 
-.icon {
-	display: inline-block;
-	width: 1em;
-	height: 1em;
-	fill: currentColor;
+.calendar-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 22px;
 }
 
-/* ================================================================================
-Example showing how to change the color/size of the icons:
-.icon-name {
-	font-size: 32px; // works because "width" & "height" were set using em units
-	color: red; // works because "fill" was set to "currentColor"
+.calendar-note {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    max-width: 560px;
 }
-================================================================================ */
 
-.icon-ilsllc {
-	width: 2.423828125em;
+/* About
+   ========================================================================== */
+
+.about p {
+    font-size: 17px;
+    color: var(--text);
+    max-width: 640px;
+}
+
+.about p + p {
+    margin-top: 18px;
+}
+
+.about .muted-line {
+    color: var(--muted);
+}
+
+/* Footer / contact
+   ========================================================================== */
+
+footer {
+    border-top: 1px solid var(--line);
+    padding: 48px 0 60px;
+    margin-top: 64px;
+}
+
+.foot-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 24px;
+}
+
+footer h2 {
+    font-size: 26px;
+    margin: 0 0 10px;
+}
+
+footer .muted {
+    color: var(--muted);
+    font-size: 14px;
+    margin: 0;
+}
+
+.links {
+    display: flex;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+
+.links a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 14px;
+    border-bottom: 1px solid var(--line);
+    padding-bottom: 2px;
+    transition: border-color .15s, color .15s;
+}
+
+.links a:hover {
+    border-color: var(--amber);
+    color: var(--amber);
+}
+
+.social {
+    margin-top: 34px;
+    padding-top: 22px;
+    border-top: 1px solid var(--line);
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.social a {
+    text-decoration: none;
+    color: var(--muted);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    transition: color .15s;
+}
+
+.social a:hover {
+    color: var(--teal);
+}
+
+/* Small screens
+   ========================================================================== */
+
+@media (max-width: 860px) {
+    .proof {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 640px) {
+    .wrap {
+        padding: 0 20px;
+    }
+
+    header .wrap {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding-top: 14px;
+        padding-bottom: 14px;
+    }
+
+    nav a {
+        margin: 0 18px 0 0;
+    }
+
+    .hero {
+        padding-top: 56px;
+    }
+
+    .channel {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .proof,
+    .repo-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .calendar-embed iframe {
+        height: 480px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    .btn-primary:hover {
+        transform: none;
+    }
 }
