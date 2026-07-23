@@ -223,8 +223,15 @@ h1.display span {
 }
 
 .btn-ghost {
+    /* Explicit, because <button> elements default to the UA's button face. */
+    background: transparent;
     border-color: var(--line);
     color: var(--text);
+}
+
+/* .btn sets display, which would otherwise beat the UA rule for [hidden]. */
+.btn[hidden] {
+    display: none;
 }
 
 .btn-ghost:hover {
@@ -315,6 +322,224 @@ h1.display span {
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--amber);
+}
+
+/* Missed-call demo
+   ========================================================================== */
+
+.demo-grid {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+    gap: 44px;
+    align-items: start;
+}
+
+.demo-copy p {
+    font-size: 17px;
+    margin: 0 0 18px;
+    max-width: 460px;
+}
+
+.demo-actions {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-top: 26px;
+}
+
+.demo-actions .btn {
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    -webkit-appearance: none;
+    appearance: none;
+}
+
+.demo-stat {
+    min-height: 18px;
+    margin: 18px 0 0;
+    font-size: 11px;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+/* Phone */
+
+.phone {
+    width: 290px;
+    padding: 10px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+    border-radius: 34px;
+    justify-self: end;
+}
+
+.phone__notch {
+    width: 92px;
+    height: 5px;
+    margin: 3px auto 9px;
+    background: var(--line);
+    border-radius: 3px;
+}
+
+.phone__screen {
+    display: flex;
+    flex-direction: column;
+    height: 460px;
+    padding: 14px 12px;
+    background: var(--bg);
+    border-radius: 26px;
+    overflow: hidden;
+}
+
+.phone__status {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+    padding: 0 4px 12px;
+    border-bottom: 1px solid var(--line);
+}
+
+/* Call state */
+
+.phone__call {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    text-align: center;
+}
+
+.phone__call.is-visible {
+    display: flex;
+}
+
+.call__label {
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--teal);
+}
+
+.phone__call.is-missed .call__label {
+    color: var(--amber);
+}
+
+.call__name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.call__num {
+    font-size: 12px;
+    color: var(--muted);
+}
+
+.call__dots {
+    display: flex;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.call__dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--teal);
+    animation: demo-pulse 1.2s infinite ease-in-out;
+}
+
+.call__dots span:nth-child(2) { animation-delay: .2s; }
+.call__dots span:nth-child(3) { animation-delay: .4s; }
+
+.phone__call.is-missed .call__dots {
+    visibility: hidden;
+}
+
+@keyframes demo-pulse {
+    0%, 100% { opacity: .25; }
+    50%      { opacity: 1; }
+}
+
+/* Message thread */
+
+.phone__thread {
+    display: none;
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 9px;
+    padding-top: 12px;
+    overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.phone__thread::-webkit-scrollbar {
+    display: none;
+}
+
+.phone__thread.is-visible {
+    display: flex;
+}
+
+.bubble {
+    max-width: 84%;
+    padding: 9px 12px;
+    border-radius: 14px;
+    font-size: 13.5px;
+    line-height: 1.45;
+    animation: demo-rise .28s ease-out both;
+}
+
+.bubble--in {
+    align-self: flex-start;
+    background: var(--surface-2);
+    border-bottom-left-radius: 4px;
+}
+
+.bubble--out {
+    align-self: flex-end;
+    background: rgba(79, 184, 168, 0.16);
+    border-bottom-right-radius: 4px;
+}
+
+.bubble--booked {
+    align-self: stretch;
+    max-width: 100%;
+    background: rgba(217, 164, 65, 0.12);
+    border-left: 2px solid var(--amber);
+    border-radius: 4px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    color: var(--amber);
+}
+
+.bubble--typing {
+    display: flex;
+    gap: 4px;
+    padding: 12px;
+}
+
+.bubble--typing span {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--muted);
+    animation: demo-pulse 1s infinite ease-in-out;
+}
+
+.bubble--typing span:nth-child(2) { animation-delay: .15s; }
+.bubble--typing span:nth-child(3) { animation-delay: .3s; }
+
+@keyframes demo-rise {
+    from { opacity: 0; transform: translateY(6px); }
+    to   { opacity: 1; transform: none; }
 }
 
 /* Proof strip
@@ -608,6 +833,15 @@ footer .muted {
 
     .calendar-embed iframe {
         height: 480px;
+    }
+
+    .demo-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .phone {
+        justify-self: center;
     }
 }
 
