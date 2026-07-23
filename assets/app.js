@@ -1,98 +1,33 @@
-(function ($, undefined) {
+/*
+ * Live GitHub project feed.
+ *
+ * Carried over from the original jQuery/JSONP version of this site — same
+ * recency-weighted ranking, rebuilt on fetch() because the GitHub API dropped
+ * JSONP callback support.
+ *
+ * The feed is deliberately lean: current work only. Anything stale, forked, or
+ * archived stays off the page. Tune the three constants below.
+ */
+(function () {
+    'use strict';
 
-    var userName = 'joshlevi';
+    var USER = 'joshlevi';
 
-    // Return the repo url
-    function getRepoUrl(repo) {
-        return repo.homepage || repo.html_url;
-    }
+    var FRESH_DAYS = 730;   // only show repos pushed within this window (24 months)
+    var MAX_REPOS = 6;      // hard cap, so the section never sprawls
+    var SHOW_FORKS = false; // forks are other people's work — off by default
 
-    // Return the repo description
-    function getRepoDesc(repo) {
-        return repo.description;
-    }
+    var API = 'https://api.github.com/users/' + USER + '/repos?per_page=100&sort=pushed';
+    var PROFILE = 'https://github.com/' + USER + '?tab=repositories';
 
-    // Display a repo's overview (for recent updates section)
-    function showRepoOverview(repo) {
-        var item;
-        item = '<li>';
-        item +=     '<span class="name"><a href="' + repo.html_url + '">' + repo.name + '</a></span>';
-        item +=     ' &middot; <span class="time"><a href="' + repo.html_url + '/commits">' + prettyDate(repo.pushed_at) + '</a></span>';
-        item += '</li>';
+    var grid = document.getElementById('repos');
+    if (!grid) { return; }
 
-        $(item).appendTo("#updated-repos");
-    }
-
-    // Create an entry for the repo in the grid of user repos
-    function showRepo(repo) {
-        var $item = $('<div class="unit-1-3 repo" />');
-        var $link = $('<a class="box" href="' + getRepoUrl(repo) + '" />');
-
-        $link.append('<h2 class="repo__name">' + repo.name + '</h2>');
-        $link.append('<p class="repo__desc">' + getRepoDesc(repo) + '</p>');
-
-        $link.appendTo($item);
-        $item.appendTo('#repos');
-    }
-
-    $.getJSON('https://api.github.com/users/' + userName + '/repos?callback=?', function (result) {
-        var repos = result.data;
-        $(function () {
-            $('#num-repos').text(repos.length);
-
-            // Convert pushed_at to Date.
-            $.each(repos, function (i, repo) {
-                repo.pushed_at = new Date(repo.pushed_at);
-
-                var weekHalfLife  = 1.146 * Math.pow(10, -9);
-
-                var pushDelta    = (new Date()) - Date.parse(repo.pushed_at);
-                var createdDelta = (new Date()) - Date.parse(repo.created_at);
-
-                var weightForPush = 1;
-                var weightForWatchers = 1.314 * Math.pow(10, 7);
-
-                repo.hotness = weightForPush * Math.pow(Math.E, -1 * weekHalfLife * pushDelta);
-                repo.hotness += weightForWatchers * repo.watchers / createdDelta;
-            });
-
-            // Sort by hotness.
-            repos.sort(function (a, b) {
-                if (a.hotness < b.hotness) return 1;
-                if (b.hotness < a.hotness) return -1;
-                return 0;
-            });
-
-            $.each(repos, function (i, repo) {
-                showRepo(repo);
-            });
-
-            // Sort by most-recently pushed to.
-            repos.sort(function (a, b) {
-                if (a.pushed_at < b.pushed_at) return 1;
-                if (b.pushed_at < a.pushed_at) return -1;
-                return 0;
-            });
-
-            $.each(repos.slice(0, 3), function (i, repo) {
-                showRepoOverview(repo);
-            });
-        });
-    });
-
-    $.getJSON('https://api.github.com/users/' + userName + '/members?per_page=100&callback=?', function (result) {
-        var members = result.data;
-        $(function () {
-            $('#num-members').text(members.length);
-        });
-    });
-
-    // Relative times
+    // Relative times, e.g. "3 days ago"
     function prettyDate(rawdate) {
-        var date, seconds, formats, i = 0, f;
-        date = new Date(rawdate);
-        seconds = (new Date() - date) / 1000;
-        formats = [
+        var date = new Date(rawdate);
+        var seconds = (new Date() - date) / 1000;
+        var formats = [
             [60, 'seconds', 1],
             [120, '1 minute ago'],
             [3600, 'minutes', 60],
@@ -101,31 +36,109 @@
             [172800, 'Yesterday'],
             [604800, 'days', 86400],
             [1209600, '1 week ago'],
-            [2678400, 'weeks', 604800]
+            [2678400, 'weeks', 604800],
+            [5356800, '1 month ago'],
+            [31536000, 'months', 2678400],
+            [63072000, '1 year ago'],
+            [Infinity, 'years', 31536000]
         ];
 
-        while (f = formats[i ++]) {
+        for (var i = 0; i < formats.length; i++) {
+            var f = formats[i];
             if (seconds < f[0]) {
-                return f[2] ? Math.floor(seconds / f[2]) + ' ' + f[1] + ' ago' :  f[1];
+                return f[2] ? Math.floor(seconds / f[2]) + ' ' + f[1] + ' ago' : f[1];
             }
         }
         return 'A while ago';
     }
 
-})(jQuery);
+    function isCurrent(repo) {
+        if (repo.archived) { return false; }
+        if (repo.fork && !SHOW_FORKS) { return false; }
+        var age = (Date.now() - Date.parse(repo.pushed_at)) / 86400000;
+        return age <= FRESH_DAYS;
+    }
 
-// External 3rd party scripts
-(function(doc, script) {
-    var js,
-        fjs = doc.getElementsByTagName(script)[0],
-        add = function(url, id) {
-            if (doc.getElementById(id)) {return;}
-            js = doc.createElement(script);
-            js.src = url;
-            id && (js.id = id);
-            fjs.parentNode.insertBefore(js, fjs);
-        };
+    // Recency-weighted ranking: recent pushes win, watchers break ties.
+    function hotness(repo) {
+        var weekHalfLife = 1.146e-9;
+        var weightForPush = 1;
+        var weightForWatchers = 1.314e7;
 
-    // Twitter SDK
-    add('//platform.twitter.com/widgets.js', 'twitter-wjs');
-}(document, 'script'));
+        var pushDelta = Date.now() - Date.parse(repo.pushed_at);
+        var createdDelta = Date.now() - Date.parse(repo.created_at);
+
+        var score = weightForPush * Math.pow(Math.E, -1 * weekHalfLife * pushDelta);
+        score += weightForWatchers * repo.watchers_count / createdDelta;
+        return score;
+    }
+
+    function el(tag, className, text) {
+        var node = document.createElement(tag);
+        if (className) { node.className = className; }
+        if (text != null) { node.textContent = text; }
+        return node;
+    }
+
+    function note(message, linkText) {
+        var p = el('p', 'repo-note', message + ' ');
+        var a = el('a', null, linkText || 'Browse everything on GitHub');
+        a.href = PROFILE;
+        a.rel = 'noopener';
+        a.target = '_blank';
+        p.appendChild(a);
+        p.appendChild(document.createTextNode('.'));
+        return p;
+    }
+
+    function renderRepo(repo) {
+        var card = el('a', 'repo');
+        card.href = repo.homepage || repo.html_url;
+        if (card.href.indexOf('github.com/' + USER) === -1) {
+            card.rel = 'noopener';
+        }
+
+        card.appendChild(el('h3', 'repo__name', repo.name));
+        card.appendChild(el('p', 'repo__desc', repo.description || 'No description yet.'));
+
+        var meta = el('div', 'repo__meta');
+        if (repo.language) {
+            meta.appendChild(el('span', 'repo__lang', repo.language));
+        }
+        if (repo.stargazers_count) {
+            meta.appendChild(el('span', null, '★ ' + repo.stargazers_count));
+        }
+        meta.appendChild(el('span', null, prettyDate(repo.pushed_at)));
+        if (repo.fork) {
+            meta.appendChild(el('span', 'repo__fork', 'fork'));
+        }
+        card.appendChild(meta);
+
+        grid.appendChild(card);
+    }
+
+    fetch(API, { headers: { Accept: 'application/vnd.github+json' } })
+        .then(function (response) {
+            if (!response.ok) { throw new Error('GitHub API responded ' + response.status); }
+            return response.json();
+        })
+        .then(function (repos) {
+            grid.innerHTML = '';
+
+            var current = repos
+                .filter(isCurrent)
+                .sort(function (a, b) { return hotness(b) - hotness(a); })
+                .slice(0, MAX_REPOS);
+
+            if (!current.length) {
+                grid.appendChild(note('Nothing current enough to list here yet — new work lands soon.', 'The full archive is on GitHub'));
+                return;
+            }
+
+            current.forEach(renderRepo);
+        })
+        .catch(function (error) {
+            grid.innerHTML = '';
+            grid.appendChild(note('The live feed is unavailable right now (' + error.message + ').'));
+        });
+}());
