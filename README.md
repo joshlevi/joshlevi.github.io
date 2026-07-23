@@ -42,15 +42,14 @@ Booking is two stages, and the page says so:
 2. **An on-site visit with a working demo** — scheduled by hand at the end of that call,
    so travel time can be blocked around it. Deliberately *not* self-serve.
 
-The embed currently points at the ILS Network calendar (`joshua@theilsnetwork.com`,
-America/New_York) in read-only availability mode. Two things to know:
+The embed is the **Free Consultation** appointment schedule
+(short link `https://calendar.app.google/Kmq8tJ1SVgHAmZTy9`, stored in `index.html` as
+its canonical `…/appointments/schedules/…?gv=true` form, which is what embed mode needs).
+Only open slots are exposed, so no calendar has to be shared publicly.
 
-1. **It only renders for visitors if that calendar is shared publicly**
-   (Calendar settings → *Access permissions* → *Make available to public*).
-2. Making a full calendar public exposes **event titles** to anyone. The better option
-   is the **Free Consultation appointment schedule**, which exposes only open slots:
-   open the schedule → Share → Embed, then swap that URL into the `<iframe>` in
-   `index.html` (there is a comment marking the spot). Nothing else needs to change.
+If the schedule is ever recreated — moving it to another account, for instance — the URL
+changes and the `<iframe>` src has to be updated with it. There is a comment marking the
+spot; nothing else changes.
 
 When on-site visits get frequent enough to automate, make them a *second* appointment
 schedule — longer duration, generous buffers, capped at one or two a day — rather than

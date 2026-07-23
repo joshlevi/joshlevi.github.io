@@ -447,16 +447,21 @@ a.repo:focus .repo__name {
     border: 1px solid var(--line);
     border-radius: 4px;
     overflow: hidden;
-    background: var(--surface);
-    /* Google's embed only renders light; the frame keeps it seated in the page. */
+    /* Google's booking page paints its text straight onto whatever is behind it,
+       so the frame has to supply a light background or the text disappears
+       against the page. color-scheme pins the embed to its light theme even when
+       the visitor's browser prefers dark. */
+    background: #FFFFFF;
     padding: 1px;
 }
 
 .calendar-embed iframe {
     display: block;
     width: 100%;
-    height: 620px;
+    height: 680px;
     border: 0;
+    background: #FFFFFF;
+    color-scheme: light;
 }
 
 .calendar-actions {

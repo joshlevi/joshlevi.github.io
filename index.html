@@ -200,21 +200,22 @@
             </div>
 
             <!--
-                BOOKING EMBED
-                Currently: read-only availability from the ILS Network calendar. This only
-                renders for visitors if that calendar is shared publicly — which also makes
-                event titles public.
+                BOOKING EMBED — "Free Consultation" appointment schedule.
+                Short link: https://calendar.app.google/Kmq8tJ1SVgHAmZTy9
+                The src below is that link resolved to its canonical form with ?gv=true,
+                which is what Google's embed mode requires.
 
-                To switch to self-serve booking (recommended), replace the iframe src below
-                with the "Free Consultation" appointment schedule's embed URL:
-                Google Calendar -> the schedule -> Share -> Embed. It looks like
-                https://calendar.google.com/calendar/appointments/schedules/AcZssZ…?gv=true
-                Nothing else needs to change — the surrounding frame is sized for either.
+                Only open slots are exposed here — no event titles, so the underlying
+                calendar does NOT need to be shared publicly.
+
+                If the schedule is ever recreated (for example on the ILS Network account
+                rather than the personal one), the URL changes and this src must be
+                updated with it. Nothing else needs to change.
             -->
             <div class="calendar-embed">
                 <iframe
                     title="Book a free consultation — The ILS Network"
-                    src="https://calendar.google.com/calendar/embed?src=joshua%40theilsnetwork.com&amp;ctz=America%2FNew_York&amp;mode=WEEK&amp;showTitle=0&amp;showPrint=0&amp;showCalendars=0&amp;showTabs=1&amp;showTz=1&amp;bgcolor=%23FFFFFF"
+                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0Zg3s17oBFAQ80PQIjJNrtI8N_muT_ub5Q-ohd614SA7q6QWHOMhDT-sUs0SohyrB9bEzW5LAt?gv=true"
                     loading="lazy"
                     frameborder="0"
                     scrolling="no"></iframe>
