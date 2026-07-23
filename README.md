@@ -58,14 +58,22 @@ Booking is two stages, and the page says so:
 2. **An on-site visit with a working demo** — scheduled by hand at the end of that call,
    so travel time can be blocked around it. Deliberately *not* self-serve.
 
-The embed is the **Free Consultation** appointment schedule
-(short link `https://calendar.app.google/Kmq8tJ1SVgHAmZTy9`, stored in `index.html` as
-its canonical `…/appointments/schedules/…?gv=true` form, which is what embed mode needs).
-Only open slots are exposed, so no calendar has to be shared publicly.
+The embed is **Cal.com**: `https://cal.com/joshlevisize/15min`, loaded with
+`?embed=true&theme=dark` so it drops Cal's page chrome and matches this site.
 
-If the schedule is ever recreated — moving it to another account, for instance — the URL
-changes and the `<iframe>` src has to be updated with it. There is a comment marking the
-spot; nothing else changes.
+It replaced a Google appointment-schedule embed, which had no dark mode and needed the
+frame to supply a white background. That hack is gone.
+
+Swapping this for a self-hosted scheduler later is a change of `src` and nothing else —
+see the `scheduler` repo.
+
+**Two settings live in Cal, not here:**
+
+1. **Connected calendars.** Cal only avoids double-booking against calendars it has been
+   connected to. If a calendar isn't connected, Cal will happily offer time that's
+   already spoken for.
+2. **Availability hours.** Cal's default schedule is far wider than most people's real
+   one. Narrow it to hours you'd actually take a call.
 
 When on-site visits get frequent enough to automate, make them a *second* appointment
 schedule — longer duration, generous buffers, capped at one or two a day — rather than

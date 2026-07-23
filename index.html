@@ -232,7 +232,7 @@
                     <div>
                         <h3>A free 15-minute video call</h3>
                         <p>Pick an open slot below. We'll talk through your site, how customers reach you, and what happens when a call goes unanswered. Fifteen minutes is enough to know whether I can help.</p>
-                        <span class="tag">Google Meet · link sent on booking</span>
+                        <span class="tag">Video call · link sent on booking</span>
                     </div>
                 </div>
                 <div class="channel">
@@ -246,25 +246,25 @@
             </div>
 
             <!--
-                BOOKING EMBED — "Free Consultation" appointment schedule.
-                Short link: https://calendar.app.google/Kmq8tJ1SVgHAmZTy9
-                The src below is that link resolved to its canonical form with ?gv=true,
-                which is what Google's embed mode requires.
+                BOOKING EMBED — Cal.com.
+                Public page: https://cal.com/joshlevisize/15min
 
-                Only open slots are exposed here — no event titles, so the underlying
-                calendar does NOT need to be shared publicly.
+                embed=true strips Cal's own page chrome; theme=dark makes it sit in this
+                page instead of fighting it. (The previous Google appointment-schedule
+                embed had no dark mode, which is why the frame used to need a white
+                background.)
 
-                If the schedule is ever recreated (for example on the ILS Network account
-                rather than the personal one), the URL changes and this src must be
-                updated with it. Nothing else needs to change.
+                Replacing this with a self-hosted scheduler later is a change of src and
+                nothing else — see the `scheduler` repo.
+
+                Superseded: https://calendar.app.google/Kmq8tJ1SVgHAmZTy9
             -->
             <div class="calendar-embed">
                 <iframe
                     title="Book a free consultation — The ILS Network"
-                    src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ0Zg3s17oBFAQ80PQIjJNrtI8N_muT_ub5Q-ohd614SA7q6QWHOMhDT-sUs0SohyrB9bEzW5LAt?gv=true"
+                    src="https://cal.com/joshlevisize/15min?embed=true&amp;theme=dark"
                     loading="lazy"
-                    frameborder="0"
-                    scrolling="no"></iframe>
+                    frameborder="0"></iframe>
             </div>
 
             <div class="calendar-actions">
