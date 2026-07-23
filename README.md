@@ -36,17 +36,25 @@ degrades to a single line linking to the GitHub profile rather than showing stal
 Booking
 ------------
 
-The booking section embeds the ILS Network Google Calendar (`joshua@theilsnetwork.com`,
-America/New_York).
+Booking is two stages, and the page says so:
 
-Two things to know:
+1. **A free 15-minute Google Meet call** — the qualifier. Self-serve, booked from the page.
+2. **An on-site visit with a working demo** — scheduled by hand at the end of that call,
+   so travel time can be blocked around it. Deliberately *not* self-serve.
 
-1. **The embed only renders for visitors if that calendar is shared publicly**
+The embed currently points at the ILS Network calendar (`joshua@theilsnetwork.com`,
+America/New_York) in read-only availability mode. Two things to know:
+
+1. **It only renders for visitors if that calendar is shared publicly**
    (Calendar settings → *Access permissions* → *Make available to public*).
 2. Making a full calendar public exposes **event titles** to anyone. The better option
-   is a Google Calendar **appointment schedule**, which exposes only open slots:
-   Create → *Appointment schedule* → Share → Embed, then swap that URL into the
-   `<iframe>` in `index.html` (there is a comment marking the spot).
+   is the **Free Consultation appointment schedule**, which exposes only open slots:
+   open the schedule → Share → Embed, then swap that URL into the `<iframe>` in
+   `index.html` (there is a comment marking the spot). Nothing else needs to change.
+
+When on-site visits get frequent enough to automate, make them a *second* appointment
+schedule — longer duration, generous buffers, capped at one or two a day — rather than
+widening the 15-minute one.
 
 Local preview
 ------------
