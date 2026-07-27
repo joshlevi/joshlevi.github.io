@@ -1,0 +1,601 @@
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+
+<head>
+    <meta charset="utf-8">
+    <title>Joshua Levi Sizemore &mdash; Bootstrap Mock-up</title>
+    <meta name="description"
+        content="A Bootstrap 5 mock-up of joshlevi.github.io — the same portfolio content rebuilt with Bootstrap's grid, components, and utilities.">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 (getbootstrap.com) -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=JetBrains+Mono:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+</head>
+
+<body>
+
+    <!-- ==========================================================================
+         Navbar — Bootstrap responsive navbar with collapse toggler
+         ========================================================================== -->
+    <nav class="navbar navbar-expand-lg sticky-top border-bottom brand-blur">
+        <div class="container">
+            <a class="navbar-brand fw-bold ls-1" href="#top">
+                JOSHUA<span class="text-warning">&middot;</span>SIZEMORE
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 gap-lg-1">
+                    <li class="nav-item"><a class="nav-link" href="#work">Work</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#demo">Demo</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#book">Book</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item ms-lg-2">
+                        <a class="btn btn-warning btn-sm fw-semibold px-3" href="#book">
+                            <i class="bi bi-calendar-check me-1"></i>Book a call
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bootstrap badge banner noting this is a mock-up -->
+    <div class="bg-body-tertiary border-bottom py-2" id="top">
+        <div class="container d-flex flex-wrap align-items-center gap-2 small text-secondary">
+            <span class="badge text-bg-warning">Mock-up</span>
+            <span>Built with <a class="link-warning link-underline-opacity-25"
+                    href="https://getbootstrap.com" target="_blank" rel="noopener">Bootstrap 5</a> —
+                grid, cards, accordion, carousel, forms, modal &amp; icons.</span>
+            <a class="ms-auto link-secondary text-nowrap" href="../index.html">
+                <i class="bi bi-arrow-left-short"></i>Back to the live site
+            </a>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Hero — Bootstrap grid + display headings + button group
+         ========================================================================== -->
+    <header class="py-5 py-lg-6">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-7">
+                    <p class="text-uppercase ls-2 small mono text-warning mb-3">
+                        <i class="bi bi-geo-alt-fill me-1"></i>Kernersville, NC &middot; The ILS Network
+                    </p>
+                    <h1 class="display-4 fw-bold lh-1 mb-4">
+                        Web builds and AI tooling for businesses that
+                        <span class="text-warning">can't afford to miss a lead.</span>
+                    </h1>
+                    <p class="lead text-secondary mb-4">
+                        I'm Joshua — a web developer, AI consultant, and longtime working musician.
+                        I build sites and simple automation for local businesses. Start with a free
+                        15-minute call; if it's a fit, I come to your shop with a working demo, before
+                        you spend a dollar.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a class="btn btn-warning btn-lg fw-semibold px-4" href="#book">
+                            Book a free 15-minute call
+                        </a>
+                        <a class="btn btn-outline-light btn-lg px-4" href="#demo">See it work</a>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <!-- Bootstrap card as a "profile" panel -->
+                    <div class="card bg-body-tertiary border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="d-flex align-items-center gap-3 mb-3">
+                                <span class="avatar rounded-circle d-inline-flex align-items-center justify-content-center fw-bold">
+                                    JS
+                                </span>
+                                <div>
+                                    <h2 class="h6 mb-0">Joshua Levi Sizemore</h2>
+                                    <span class="small text-secondary">The ILS Network</span>
+                                </div>
+                            </div>
+                            <ul class="list-group list-group-flush small">
+                                <li class="list-group-item bg-transparent px-0 d-flex justify-content-between">
+                                    <span><i class="bi bi-code-slash me-2 text-warning"></i>Web development</span>
+                                    <span class="badge rounded-pill text-bg-secondary">Build</span>
+                                </li>
+                                <li class="list-group-item bg-transparent px-0 d-flex justify-content-between">
+                                    <span><i class="bi bi-robot me-2 text-warning"></i>AI automation</span>
+                                    <span class="badge rounded-pill text-bg-secondary">Advise</span>
+                                </li>
+                                <li class="list-group-item bg-transparent px-0 d-flex justify-content-between">
+                                    <span><i class="bi bi-music-note-beamed me-2 text-warning"></i>Live events</span>
+                                    <span class="badge rounded-pill text-bg-secondary">Perform</span>
+                                </li>
+                                <li class="list-group-item bg-transparent px-0 d-flex justify-content-between">
+                                    <span><i class="bi bi-pencil-square me-2 text-warning"></i>Writing</span>
+                                    <span class="badge rounded-pill text-bg-secondary">Create</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Bootstrap progress bar as the signature "meter" divider -->
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 my-2">
+            <span class="mono text-uppercase small text-secondary ls-2 text-nowrap">01 — signal</span>
+            <div class="progress flex-grow-1" role="progressbar" aria-label="Signal" aria-valuenow="90"
+                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                <div class="progress-bar bg-info" style="width:90%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         What I do — Bootstrap card grid (row / col)
+         ========================================================================== -->
+    <section id="work" class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold">What I do</h2>
+                    <p class="text-secondary mb-0">Four channels, one operator. Everything below is
+                        rebuilt from the live site using Bootstrap components.</p>
+                </div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <span class="badge text-bg-dark mono mb-3">BUILD</span>
+                            <h3 class="h5 card-title">Websites &amp; missed-call automation</h3>
+                            <p class="card-text text-secondary">Clean, mobile-first sites paired with a
+                                simple text-back system, so a missed call never becomes a lost customer.
+                                Built for barbershops, auto shops, and studios — not enterprise software.</p>
+                            <span class="badge rounded-pill border border-warning text-warning">Web Dev · AI Automation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <span class="badge text-bg-dark mono mb-3">ADVISE</span>
+                            <h3 class="h5 card-title">Practical AI consulting</h3>
+                            <p class="card-text text-secondary">Augmentation, not replacement. I help small
+                                businesses use AI tools for the parts of the day that eat time — scheduling,
+                                follow-up, first-draft copy — without overhauling how they run.</p>
+                            <span class="badge rounded-pill border border-warning text-warning">Consulting</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <span class="badge text-bg-dark mono mb-3">PERFORM</span>
+                            <h3 class="h5 card-title">Live events, DJ &amp; MC</h3>
+                            <p class="card-text text-secondary">Years of reading a room and delivering live,
+                                under pressure, with no do-overs. That instinct for pacing and presence carries
+                                directly into how I run a pitch, a demo, or an event.</p>
+                            <span class="badge rounded-pill border border-warning text-warning">Music · Event Services</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover">
+                        <div class="card-body p-4">
+                            <span class="badge text-bg-dark mono mb-3">WRITE</span>
+                            <h3 class="h5 card-title">Writing &amp; worldbuilding</h3>
+                            <p class="card-text text-secondary">Long-form creative work, including an original
+                                franchise-scale universe I'm building in parallel — proof the same discipline
+                                that runs a business also runs a story.</p>
+                            <span class="badge rounded-pill border border-warning text-warning">Writing</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 my-2">
+            <span class="mono text-uppercase small text-secondary ls-2 text-nowrap">02 — see it work</span>
+            <div class="progress flex-grow-1" role="progressbar" aria-label="Demo" aria-valuenow="60"
+                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                <div class="progress-bar bg-warning" style="width:60%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Demo — Bootstrap grid + toast to simulate the text-back
+         ========================================================================== -->
+    <section id="demo" class="py-5">
+        <div class="container">
+            <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold">The missed call, recovered</h2>
+                    <p class="text-secondary"><i class="bi bi-info-circle me-1"></i>A simulation — nothing is actually sent.</p>
+                    <p>Someone calls your shop while you're with a customer. Nothing happens, and they call
+                        the next place on the list. That's the whole problem, and it costs more than any
+                        website ever will.</p>
+                    <p class="text-secondary">Here's what I install instead. Press the button and watch the
+                        automatic text-back fire.</p>
+                    <button class="btn btn-warning fw-semibold" id="demoBtn" type="button">
+                        <i class="bi bi-telephone-inbound me-1"></i>Call the shop
+                    </button>
+                    <p class="mono small text-info mt-3 mb-0" id="demoStat" role="status" aria-live="polite"></p>
+                </div>
+                <div class="col-lg-6">
+                    <!-- Bootstrap "phone" built from card + list-group -->
+                    <div class="card mx-auto phone-card bg-black border-secondary-subtle shadow">
+                        <div class="card-header d-flex justify-content-between mono small text-secondary bg-transparent border-secondary-subtle">
+                            <span>9:41</span><span>Calderon Barbershop</span>
+                        </div>
+                        <div class="card-body">
+                            <div class="text-center py-4" id="callState">
+                                <div class="mono small text-secondary text-uppercase">Calling…</div>
+                                <div class="h5 mt-2 mb-1">Calderon Barbershop</div>
+                                <div class="mono text-secondary">(336) 555-0142</div>
+                                <div class="spinner-grow spinner-grow-sm text-warning mt-3" role="status"></div>
+                            </div>
+                            <div id="thread" class="d-flex flex-column gap-2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 my-2">
+            <span class="mono text-uppercase small text-secondary ls-2 text-nowrap">03 — proof</span>
+            <div class="progress flex-grow-1" role="progressbar" aria-label="Proof" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                <div class="progress-bar bg-info" style="width:100%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Proof — Bootstrap columns with big numbers
+         ========================================================================== -->
+    <section class="py-5">
+        <div class="container">
+            <div class="row text-center g-4">
+                <div class="col-md-4">
+                    <div class="p-4 bg-body-tertiary rounded-3 h-100">
+                        <div class="display-4 fw-bold mono text-warning">3</div>
+                        <p class="text-secondary mb-0">Free working demos built for local businesses</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-body-tertiary rounded-3 h-100">
+                        <div class="display-4 fw-bold mono text-warning">BA</div>
+                        <p class="text-secondary mb-0">Appalachian State University</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="p-4 bg-body-tertiary rounded-3 h-100">
+                        <div class="display-4 fw-bold mono text-warning">NC</div>
+                        <p class="text-secondary mb-0">Based in Kernersville, serving the Triad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 my-2">
+            <span class="mono text-uppercase small text-secondary ls-2 text-nowrap">04 — open source</span>
+            <div class="progress flex-grow-1" role="progressbar" aria-label="Projects" aria-valuenow="75"
+                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                <div class="progress-bar bg-info" style="width:75%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Projects — Bootstrap carousel of project cards (static mock data)
+         ========================================================================== -->
+    <section id="projects" class="py-5">
+        <div class="container">
+            <div class="d-flex flex-wrap align-items-end justify-content-between mb-4 gap-2">
+                <div>
+                    <h2 class="fw-bold mb-1">Current projects</h2>
+                    <p class="text-secondary mb-0 small">Mock data for the layout — the live site pulls these
+                        from <a class="link-warning" href="https://github.com/joshlevi?tab=repositories"
+                            target="_blank" rel="noopener">github.com/joshlevi</a>.</p>
+                </div>
+                <div class="btn-group" role="group" aria-label="Carousel controls">
+                    <button class="btn btn-outline-secondary btn-sm" type="button"
+                        data-bs-target="#projectCarousel" data-bs-slide="prev">
+                        <i class="bi bi-chevron-left"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm" type="button"
+                        data-bs-target="#projectCarousel" data-bs-slide="next">
+                        <i class="bi bi-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div id="projectCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="row g-4">
+                            <div class="col-md-4"><div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover"><div class="card-body">
+                                <h3 class="h6"><i class="bi bi-git me-1 text-warning"></i>scheduler</h3>
+                                <p class="small text-secondary">Self-hosted booking backend that will replace the Cal.com embed.</p>
+                                <div class="d-flex gap-2 small text-secondary"><span class="badge text-bg-dark">TypeScript</span><span>★ 4</span><span>2 days ago</span></div>
+                            </div></div></div>
+                            <div class="col-md-4"><div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover"><div class="card-body">
+                                <h3 class="h6"><i class="bi bi-git me-1 text-warning"></i>text-back</h3>
+                                <p class="small text-secondary">Missed-call SMS automation the demo above is modeled on.</p>
+                                <div class="d-flex gap-2 small text-secondary"><span class="badge text-bg-dark">Python</span><span>★ 9</span><span>5 days ago</span></div>
+                            </div></div></div>
+                            <div class="col-md-4"><div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover"><div class="card-body">
+                                <h3 class="h6"><i class="bi bi-git me-1 text-warning"></i>joshlevi.github.io</h3>
+                                <p class="small text-secondary">This portfolio — plus the Bootstrap mock-up you're reading.</p>
+                                <div class="d-flex gap-2 small text-secondary"><span class="badge text-bg-dark">HTML</span><span>★ 2</span><span>1 week ago</span></div>
+                            </div></div></div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="row g-4">
+                            <div class="col-md-4"><div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover"><div class="card-body">
+                                <h3 class="h6"><i class="bi bi-git me-1 text-warning"></i>ils-components</h3>
+                                <p class="small text-secondary">Shared UI kit and design tokens for The ILS Network builds.</p>
+                                <div class="d-flex gap-2 small text-secondary"><span class="badge text-bg-dark">CSS</span><span>★ 1</span><span>3 weeks ago</span></div>
+                            </div></div></div>
+                            <div class="col-md-4"><div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover"><div class="card-body">
+                                <h3 class="h6"><i class="bi bi-git me-1 text-warning"></i>worldbuild</h3>
+                                <p class="small text-secondary">Notes engine for the long-form fiction universe.</p>
+                                <div class="d-flex gap-2 small text-secondary"><span class="badge text-bg-dark">Markdown</span><span>★ 6</span><span>1 month ago</span></div>
+                            </div></div></div>
+                            <div class="col-md-4"><div class="card h-100 bg-body-tertiary border-0 shadow-sm card-hover"><div class="card-body">
+                                <h3 class="h6"><i class="bi bi-git me-1 text-warning"></i>setlist</h3>
+                                <p class="small text-secondary">DJ set planner with BPM and key matching.</p>
+                                <div class="d-flex gap-2 small text-secondary"><span class="badge text-bg-dark">JavaScript</span><span>★ 3</span><span>1 month ago</span></div>
+                            </div></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 my-2">
+            <span class="mono text-uppercase small text-secondary ls-2 text-nowrap">05 — booking</span>
+            <div class="progress flex-grow-1" role="progressbar" aria-label="Booking" aria-valuenow="85"
+                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                <div class="progress-bar bg-warning" style="width:85%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         Booking — Bootstrap accordion (steps) + form + modal
+         ========================================================================== -->
+    <section id="book" class="py-5">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-lg-8">
+                    <h2 class="fw-bold">How booking works</h2>
+                    <p class="text-secondary mb-0">Eastern Time · both steps free, no obligation.</p>
+                </div>
+            </div>
+
+            <div class="row g-5">
+                <div class="col-lg-6">
+                    <div class="accordion" id="stepsAccordion">
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#step1">
+                                    <span class="mono text-warning me-2">STEP 01</span> A free 15-minute video call
+                                </button>
+                            </h3>
+                            <div id="step1" class="accordion-collapse collapse show"
+                                data-bs-parent="#stepsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    Pick an open slot. We'll talk through your site, how customers reach you,
+                                    and what happens when a call goes unanswered. Fifteen minutes is enough to
+                                    know whether I can help.
+                                    <div class="mt-2"><span class="badge rounded-pill border border-warning text-warning">Video call · link sent on booking</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h3 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#step2">
+                                    <span class="mono text-warning me-2">STEP 02</span> I come to you with a working demo
+                                </button>
+                            </h3>
+                            <div id="step2" class="accordion-collapse collapse"
+                                data-bs-parent="#stepsAccordion">
+                                <div class="accordion-body text-secondary">
+                                    If it's a fit, we set a time and I visit your shop with something real —
+                                    built for your business, running on your phone. You decide after you've
+                                    seen it, not before.
+                                    <div class="mt-2"><span class="badge rounded-pill border border-warning text-warning">In person · Kernersville &amp; the Triad</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <!-- Bootstrap form (floating labels + validation) -->
+                    <div class="card bg-body-tertiary border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <h3 class="h5 mb-3">Request a time</h3>
+                            <form id="bookForm" class="needs-validation" novalidate>
+                                <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="bizName" placeholder="Business" required>
+                                    <label for="bizName">Business name</label>
+                                    <div class="invalid-feedback">Tell me your business name.</div>
+                                </div>
+                                <div class="form-floating mb-3">
+                                    <input type="email" class="form-control" id="email" placeholder="Email" required>
+                                    <label for="email">Email</label>
+                                    <div class="invalid-feedback">A valid email, please.</div>
+                                </div>
+                                <div class="row g-3 mb-3">
+                                    <div class="col-6 form-floating">
+                                        <select class="form-select" id="day" required>
+                                            <option value="" selected disabled>Choose…</option>
+                                            <option>Mon</option><option>Tue</option><option>Wed</option>
+                                            <option>Thu</option><option>Fri</option>
+                                        </select>
+                                        <label for="day" class="ms-2">Preferred day</label>
+                                    </div>
+                                    <div class="col-6 form-floating">
+                                        <input type="time" class="form-control" id="time" required>
+                                        <label for="time" class="ms-2">Time (ET)</label>
+                                    </div>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="agree" required>
+                                    <label class="form-check-label small text-secondary" for="agree">
+                                        This is a mock-up — I understand nothing is really sent.
+                                    </label>
+                                    <div class="invalid-feedback">Please confirm.</div>
+                                </div>
+                                <button class="btn btn-warning fw-semibold w-100" type="submit">
+                                    <i class="bi bi-send me-1"></i>Request a time
+                                </button>
+                            </form>
+                            <div class="d-grid mt-2">
+                                <button class="btn btn-outline-light" type="button" data-bs-toggle="modal"
+                                    data-bs-target="#calModal">
+                                    <i class="bi bi-calendar3 me-1"></i>Open the calendar embed
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <div class="d-flex align-items-center gap-3 my-2">
+            <span class="mono text-uppercase small text-secondary ls-2 text-nowrap">06 — about</span>
+            <div class="progress flex-grow-1" role="progressbar" aria-label="About" aria-valuenow="70"
+                aria-valuemin="0" aria-valuemax="100" style="height:8px;">
+                <div class="progress-bar bg-info" style="width:70%"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         About
+         ========================================================================== -->
+    <section id="about" class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-9">
+                    <h2 class="fw-bold mb-3">About</h2>
+                    <p class="fs-5">I run The ILS Network out of Kernersville, North Carolina — a small
+                        operation built on a simple idea: businesses don't need more software, they need
+                        someone who'll actually show up, build the thing, and explain it in plain language.</p>
+                    <p class="text-secondary">Before this, I spent years on stages and behind decks as a DJ
+                        and MC, and I studied at Appalachian State. That background is exactly why I work the
+                        way I do now: build it first, show it live, let the work speak.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================================================================
+         Footer
+         ========================================================================== -->
+    <footer class="border-top py-5 bg-body-tertiary">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <h2 class="h4 fw-bold">Let's build something.</h2>
+                    <p class="text-secondary">A 15-minute call, then a demo at your shop. Kernersville &amp; the Triad.</p>
+                    <div class="d-flex gap-2 flex-wrap">
+                        <a class="btn btn-outline-light btn-sm" href="https://theilsnetwork.com/" target="_blank" rel="noopener">The ILS Network</a>
+                        <a class="btn btn-outline-light btn-sm" href="https://linkedin.com/in/joshualevisizemore" target="_blank" rel="noopener"><i class="bi bi-linkedin"></i></a>
+                        <a class="btn btn-outline-light btn-sm" href="https://github.com/joshlevi" target="_blank" rel="noopener"><i class="bi bi-github"></i></a>
+                        <a class="btn btn-outline-light btn-sm" href="https://twitter.com/joshlevisize" target="_blank" rel="noopener"><i class="bi bi-twitter-x"></i></a>
+                        <a class="btn btn-outline-light btn-sm" href="https://instagram.com/joshlevisize" target="_blank" rel="noopener"><i class="bi bi-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover" href="mailto:joshua@theilsnetwork.com"><i class="bi bi-envelope me-2 text-warning"></i>joshua@theilsnetwork.com</a></li>
+                        <li class="mb-2"><a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover" href="https://github.com/joshlevi" target="_blank" rel="noopener"><i class="bi bi-github me-2 text-warning"></i>github.com/joshlevi</a></li>
+                        <li class="mb-2"><a class="link-light link-underline-opacity-0 link-underline-opacity-100-hover" href="https://about.me/joshualevisizemore" target="_blank" rel="noopener"><i class="bi bi-person-badge me-2 text-warning"></i>about.me/joshualevisizemore</a></li>
+                    </ul>
+                    <p class="small text-secondary mb-0">Mock-up rebuilt with Bootstrap 5. Original design &amp; content © Joshua Levi Sizemore.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Calendar modal -->
+    <div class="modal fade" id="calModal" tabindex="-1" aria-hidden="true" aria-labelledby="calModalLabel">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title h5" id="calModalLabel">Book a free consultation</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p class="text-secondary small">On the live site this loads the Cal.com embed. In the
+                        mock-up it's a placeholder to show the Bootstrap modal in action.</p>
+                    <div class="ratio ratio-16x9 bg-black rounded-3 d-flex align-items-center justify-content-center">
+                        <div class="d-flex align-items-center justify-content-center text-secondary">
+                            <i class="bi bi-calendar-week fs-1"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-outline-light" data-bs-dismiss="modal">Close</button>
+                    <a class="btn btn-warning" href="mailto:joshua@theilsnetwork.com?subject=Free%2015-minute%20consultation">Email instead</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast container for the demo -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        <div id="bookToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <strong class="me-auto">Request captured</strong>
+                <small class="text-secondary">now</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">Mock-up only — nothing was sent. On the live site this books your slot.</div>
+        </div>
+    </div>
+
+    <!-- Back-to-top button -->
+    <a href="#top" class="btn btn-warning rounded-circle back-top shadow" aria-label="Back to top">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+
+    <!-- Bootstrap JS bundle (includes Popper) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="mockup.js"></script>
+</body>
+
+</html>
