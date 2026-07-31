@@ -1,0 +1,142 @@
+/*
+ * theme.css — a thin skin over Bootstrap 5.
+ *
+ * Bootstrap does the layout and components; this file only remaps the
+ * dark-theme tokens to the joshlevi.github.io / ILS Network palette
+ * (amber + teal on a near-black surface) and adds the couple of bespoke
+ * pieces that aren't Bootstrap primitives (avatar, phone card, back-to-top).
+ */
+
+:root {
+    --ils-bg: #14171C;
+    --ils-surface: #1B1F26;
+    --ils-surface-2: #20242C;
+    --ils-amber: #D9A441;
+    --ils-teal: #4FB8A8;
+    --ils-text: #EDEBE3;
+    --ils-muted: #8B90A0;
+}
+
+/* Retint Bootstrap's dark theme to the ILS palette */
+[data-bs-theme="dark"] {
+    --bs-body-bg: var(--ils-bg);
+    --bs-body-color: var(--ils-text);
+    --bs-tertiary-bg: var(--ils-surface);
+    --bs-secondary-color: var(--ils-muted);
+    --bs-border-color: rgba(237, 235, 227, 0.10);
+    --bs-border-color-translucent: rgba(237, 235, 227, 0.10);
+
+    /* Warning = amber (used for primary accents), Info = teal */
+    --bs-warning: var(--ils-amber);
+    --bs-warning-rgb: 217, 164, 65;
+    --bs-info: var(--ils-teal);
+    --bs-info-rgb: 79, 184, 168;
+    --bs-link-color-rgb: 217, 164, 65;
+    --bs-link-hover-color-rgb: 231, 190, 118;
+}
+
+body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6,
+.navbar-brand, .btn, .badge, .nav-link, .accordion-button, .display-4 {
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.mono {
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.ls-1 { letter-spacing: 0.04em; }
+.ls-2 { letter-spacing: 0.14em; }
+
+.py-lg-6 { padding-top: 5rem; padding-bottom: 5rem; }
+
+/* Sticky translucent navbar, matching the live site's blur */
+.brand-blur {
+    background: rgba(20, 23, 28, 0.85);
+    backdrop-filter: blur(8px);
+}
+
+.nav-link { color: var(--ils-muted); }
+.nav-link:hover,
+.nav-link:focus { color: var(--ils-text); }
+
+/* Amber buttons: readable dark text on the amber fill */
+.btn-warning {
+    --bs-btn-color: #14171C;
+    --bs-btn-hover-color: #14171C;
+    --bs-btn-active-color: #14171C;
+}
+
+/* Card hover lift */
+.card-hover {
+    transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35) !important;
+}
+
+/* Hero avatar */
+.avatar {
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--ils-amber), var(--ils-teal));
+    color: #14171C;
+    flex-shrink: 0;
+}
+
+/* Phone mock card */
+.phone-card {
+    max-width: 320px;
+    border-radius: 1.75rem;
+}
+.phone-card .card-header:first-child {
+    border-top-left-radius: 1.75rem;
+    border-top-right-radius: 1.75rem;
+}
+
+/* Chat bubbles inside the demo thread */
+.bubble {
+    max-width: 85%;
+    padding: 0.5rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    line-height: 1.35;
+}
+.bubble-in {
+    align-self: flex-start;
+    background: var(--ils-surface-2);
+    border-bottom-left-radius: 0.25rem;
+}
+.bubble-out {
+    align-self: flex-end;
+    background: var(--ils-teal);
+    color: #0d1512;
+    border-bottom-right-radius: 0.25rem;
+}
+
+/* Back-to-top */
+.back-top {
+    position: fixed;
+    right: 1.25rem;
+    bottom: 1.25rem;
+    width: 44px;
+    height: 44px;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1030;
+}
+.back-top.show { display: inline-flex; }
+
+/* Accordion tinting */
+.accordion {
+    --bs-accordion-bg: var(--ils-surface);
+    --bs-accordion-active-bg: var(--ils-surface-2);
+    --bs-accordion-active-color: var(--ils-text);
+    --bs-accordion-btn-focus-box-shadow: 0 0 0 0.2rem rgba(217, 164, 65, 0.25);
+}
