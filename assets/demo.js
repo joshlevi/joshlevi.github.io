@@ -13,6 +13,7 @@
     var call = document.getElementById('demo-call');
     var thread = document.getElementById('demo-thread');
     var stat = document.getElementById('demo-stat');
+    var idle = document.getElementById('demo-idle');
 
     if (!play || !call || !thread) { return; }
 
@@ -92,6 +93,7 @@
         thread.classList.remove('is-visible');
         stat.textContent = '';
         reset.hidden = true;
+        if (idle) { idle.classList.add('is-hidden'); }
 
         call.classList.remove('is-missed');
         call.classList.add('is-visible');
